@@ -1,18 +1,18 @@
 <hr>
-<form>
+<form (ngSubmit)="onSubmit()">
   <fieldset>
     <label for="email-order">Email: </label>
-    <input id="email-order" name="email-order" type="email" required maxlength="5">
+    <input id="email-order" name="email-order" type="email" required>
   </fieldset>
 
   <fieldset>
     <label for="firstname-order">Firstname: </label>
-    <input id="firstname-order" name="firstname-order" type="text" required>
+    <input id="firstname-order" name="firstname-order" type="text" minlength="3" maxlength="15" required>
   </fieldset>
 
   <fieldset>
     <label for="lastname-order">Lastname: </label>
-    <input id="lastname-order" name="lastname-order" type="text" required>
+    <input id="lastname-order" name="lastname-order" type="text" minlength="3" maxlength="15" required>
   </fieldset>
 
   <fieldset>
@@ -20,5 +20,5 @@
     <input id="password-order" name="password-order" type="password" required>
   </fieldset>
 
-  <button type="submit">Registred</button>
+  <button type="submit">Registered</button>
 </form>
