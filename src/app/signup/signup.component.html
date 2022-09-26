@@ -1,24 +1,48 @@
 <hr>
-<form (ngSubmit)="onSubmit()">
+<form #myForm="ngForm" (ngSubmit)="myForm.valid && onSubmit()">
   <fieldset>
     <label for="email-order">Email: </label>
-    <input id="email-order" name="email-order" [(ngModel)]="model.email" type="email" required>
+    <input id="email-order" name="email-order" [(ngModel)]="model.email" #email="ngModel" type="email" required>
   </fieldset>
+
+  <!-- Message d'erreurs de l'input email -->
+  <div *ngIf="myForm.submitted && email.errors">
+    <span *ngIf="email.errors?.['required']">L'email est requis</span>
+  </div>
 
   <fieldset>
     <label for="firstname-order">Firstname: </label>
-    <input id="firstname-order" name="firstname-order" [(ngModel)]="model.firstname" type="text" minlength="3" maxlength="15" required>
+    <input id="firstname-order" name="firstname-order" [(ngModel)]="model.firstname" #firstname="ngModel" type="text" minlength="3" maxlength="15" required>
   </fieldset>
+
+  <!-- Message d'erreurs de l'input firstname -->
+  <div *ngIf="myForm.submitted && firstname.errors">
+    <span *ngIf="firstname.errors?.['required']">Le prénom est requis</span>
+    <span *ngIf="firstname.errors?.['minlength']">La longueur minimale du prénom doit être supérieure à 3 caractères</span>
+    <span *ngIf="firstname.errors?.['maxlength']">La longueur maximale du prénom  doit être inférieure à 15 caractères</span>
+  </div>
 
   <fieldset>
     <label for="lastname-order">Lastname: </label>
-    <input id="lastname-order" name="lastname-order" [(ngModel)]="model.lastname" type="text" minlength="3" maxlength="15" required>
+    <input id="lastname-order" name="lastname-order" [(ngModel)]="model.lastname" #lastname="ngModel" type="text" minlength="3" maxlength="15" required>
   </fieldset>
+
+  <!-- Message d'erreurs de l'input lastname -->
+  <div *ngIf="myForm.submitted && lastname.errors">
+    <span *ngIf="lastname.errors?.['required']">Le nom est requis</span>
+    <span *ngIf="lastname.errors?.['minlength']">La longueur minimale du nom doit être supérieure à 3 caractères</span>
+    <span *ngIf="lastname.errors?.['maxlength']">La longueur maximale du nom  doit être inférieure à 15 caractères</span>
+  </div>
 
   <fieldset>
     <label for="password-order">Password: </label>
-    <input id="password-order" name="password-order" [(ngModel)]="model.password" type="password" required>
+    <input id="password-order" name="password-order" [(ngModel)]="model.password" #password="ngModel" type="password" required>
   </fieldset>
+
+  <!-- Message d'erreurs de l'input password -->
+  <div *ngIf="myForm.submitted && password.errors">
+    <span *ngIf="password.errors?.['required']">Le mot de passe est requis</span>
+  </div>
 
   <button type="submit">Registered</button>
 </form>
