@@ -3,8 +3,8 @@ import { Routes } from '@angular/router';
 // import { ContactComponent } from './contact/contact.component';
 
 const ROUTES: Routes = [
-  // { path: 'home', component: HomeComponent },
-  // { path: 'contact', component: ContactComponent },
+  // { path: 'signup', component: HomeComponent },
+  // { path: 'user', component: ContactComponent },
 ];
 
 export { ROUTES };
