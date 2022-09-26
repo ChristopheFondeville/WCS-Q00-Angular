@@ -2,22 +2,22 @@
 <form (ngSubmit)="onSubmit()">
   <fieldset>
     <label for="email-order">Email: </label>
-    <input id="email-order" name="email-order" type="email" required>
+    <input id="email-order" name="email-order" [(ngModel)]="model.email" type="email" required>
   </fieldset>
 
   <fieldset>
     <label for="firstname-order">Firstname: </label>
-    <input id="firstname-order" name="firstname-order" type="text" minlength="3" maxlength="15" required>
+    <input id="firstname-order" name="firstname-order" [(ngModel)]="model.firstname" type="text" minlength="3" maxlength="15" required>
   </fieldset>
 
   <fieldset>
     <label for="lastname-order">Lastname: </label>
-    <input id="lastname-order" name="lastname-order" type="text" minlength="3" maxlength="15" required>
+    <input id="lastname-order" name="lastname-order" [(ngModel)]="model.lastname" type="text" minlength="3" maxlength="15" required>
   </fieldset>
 
   <fieldset>
     <label for="password-order">Password: </label>
-    <input id="password-order" name="password-order" type="password" required>
+    <input id="password-order" name="password-order" [(ngModel)]="model.password" type="password" required>
   </fieldset>
 
   <button type="submit">Registered</button>
